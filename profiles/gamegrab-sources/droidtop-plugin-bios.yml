@@ -1,6 +1,6 @@
 # BIOS and firmware (gamegrab.bios). DRAFT by the harness lane (2026-11-05), read from the repo at
 # f215b33 (manifest.template.json and its code); its published bundles could not be fetched from this
-# lane's sandbox. The plugins lane confirms it on Droidtop/tracker#550.
+# lane's sandbox. The plugins lane confirms it on mytop-project/tracker#550.
 repo: gamegrab-sources/droidtop-plugin-bios
 extends: _kinds/gamegrab-plugin
 purpose: >

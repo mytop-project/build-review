@@ -59,7 +59,7 @@ python3 -m pip install -q -r "$(dirname "$0")/../requirements.txt"
 # existing code whenever possible").
 eh="$HOME/.enginehost-tooling"
 if [ ! -d "$eh/.git" ]; then
-  git init -q "$eh" && git -C "$eh" remote add origin https://github.com/Droidtop/enginehost
+  git init -q "$eh" && git -C "$eh" remote add origin https://github.com/mytop-project/enginehost
 fi
 git -C "$eh" sparse-checkout set --no-cone /scripts/check-bundle-conformance.py /app/src/main/kotlin/dev/enginehost/EngineNames.kt
 git -C "$eh" fetch -q --depth 1 --filter=blob:none origin a74d7e906edc440e6e24ba5325ef35f679c2bd5c

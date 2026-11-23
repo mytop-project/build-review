@@ -1,7 +1,7 @@
 # Shizuku (droidtop.shizuku-bridge). DRAFT by the harness lane (2026-11-05), read from
 # plugin-unstable (droidtop.shizuku-bridge.droidplugin.tar.xz) and the repo at e6cf0cb. Host-API permissions
-# carry the manifest's own reasons. The plugins lane confirms it on Droidtop/tracker#550.
-repo: Droidtop/droidtop-plugin-shizuku
+# carry the manifest's own reasons. The plugins lane confirms it on mytop-project/tracker#550.
+repo: mytop-project/droidtop-plugin-shizuku
 extends: _kinds/droidtop-plugin
 purpose: >
   Lets droidtop and the plugins you allow use Shizuku for system-level actions, such as closing

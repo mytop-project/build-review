@@ -48,14 +48,14 @@ def _cell(s: str) -> str:
 
 
 def issue_draft(decision: dict) -> dict:
-    """What the coordinator files on Droidtop/tracker (label build-review)
+    """What the coordinator files on mytop-project/tracker (label build-review)
     for a refused (code) release: title, body and labels, with the evidence."""
     fps = ", ".join(f"`{f}`" for f in decision.get("fingerprints", []))
     repo = decision["repo"]
     lines = [
         f"The build review harness found blocking issues in {repo} `{decision['release']}` "
         f"(commit `{decision.get('commit') or 'unknown'}`), and a rebuild from the same commit has the same ones, "
-        "so the issue is in the code (Droidtop/tracker#550, the standard build review loop, step 3).",
+        "so the issue is in the code (mytop-project/tracker#550, the standard build review loop, step 3).",
         "",
         f"Report: {decision.get('reportUrl') or '(in the run)'}",
         "",
@@ -73,6 +73,6 @@ def issue_draft(decision: dict) -> dict:
             lines += [f"`{f['rule']}` at `{_cell(f['location'])}`:", "```", f["evidence"][:1200], "```"]
     lines += ["", f"<!-- build-review: repo={repo} fingerprints={fps} -->"]
     n = len(decision.get("fingerprints", []))
-    return {"repo": "Droidtop/tracker", "labels": ["build-review"],
+    return {"repo": "mytop-project/tracker", "labels": ["build-review"],
             "title": f"{repo.split('/')[-1]}: build review finds {n} issue(s) in the code ({decision['release']})",
             "body": "\n".join(lines)}

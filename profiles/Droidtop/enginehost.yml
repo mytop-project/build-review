@@ -2,9 +2,9 @@
 # from the merged manifest and lib/ of v0.1.5-dev.658 (enginehost-latest.apk,
 # sha256 e1df949a...) and Enginehost main a74d7e9, each reason citing its
 # source there. The Enginehost lane confirms or corrects every line on
-# Droidtop/tracker#550; until then the profile is a draft and its review
+# mytop-project/tracker#550; until then the profile is a draft and its review
 # results are leads, not verdicts.
-repo: Droidtop/enginehost
+repo: mytop-project/enginehost
 purpose: >
   An Android app that runs game engines (Ren'Py, Godot, RPG Maker, KiriKiri,
   ...) delivered as signed engine bundles, each from its own
@@ -43,7 +43,7 @@ exported_ok:
   dev.enginehost.EnginehostSettingsActivity: "CONFIGURE_SAVES and CONFIGURE_SETTINGS: every UI flow has a programmatic equivalent (CLAUDE.md, docs/contract.md)"
   dev.enginehost.GameScanActivity: "dev.enginehost.SCAN, the same contract (docs/contract.md)"
   dev.enginehost.ConfigEditorActivity: "dev.enginehost.CONFIGURE, the same contract (docs/contract.md)"
-  dev.enginehost.DroidtopInterfaceService: "droidtop's app_interface plugin binding (Droidtop/tracker#547); answers only droidtop's uid with a pinned signing certificate (DroidtopLink, app manifest)"
+  dev.enginehost.DroidtopInterfaceService: "droidtop's app_interface plugin binding (mytop-project/tracker#547); answers only droidtop's uid with a pinned signing certificate (DroidtopLink, app manifest)"
   dev.enginehost.CapabilityProvider: "Read-only advisory view of installed, verified engine-bundle capabilities, no selection, fixed columns (CapabilityProvider.kt:15-29). TO IDENTIFY: Enginehost lane to confirm that insert, update and delete refuse"
   androidx.profileinstaller.ProfileInstallReceiver: "AndroidX, behind DUMP"
 

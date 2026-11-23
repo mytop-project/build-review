@@ -103,7 +103,7 @@ def run_act(src: Path, build: dict, env: dict) -> Path:
     # github.token. A job that checks out another repository cannot start
     # without one (droidtop plugins check out droidtop: "Input required and
     # not supplied: token", build review batch 42120200445). Owner,
-    # 2026-11-05, Droidtop/tracker#913: "Yes". It goes in through a secret
+    # 2026-11-05, mytop-project/tracker#913: "Yes". It goes in through a secret
     # file, not the command line, and never into the build's environment,
     # which clean_env() has already stripped of it.
     secrets = None

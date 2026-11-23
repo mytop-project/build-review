@@ -1,7 +1,7 @@
 # windowcast's review profile. DRAFT by the harness lane (2026-11-05), read from
 # v0.37.0's assets and the repo's workflows (android.yml, linux-packages.yml).
-# The Platforms lane confirms it on Droidtop/tracker#550.
-repo: Droidtop/windowcast
+# The Platforms lane confirms it on mytop-project/tracker#550.
+repo: mytop-project/windowcast
 purpose: >
   The separate streaming project: a host agent and app on Linux (and Windows) that streams a window or
   desktop to a viewer, and the Android library droidtop embeds to play a paired computer's game

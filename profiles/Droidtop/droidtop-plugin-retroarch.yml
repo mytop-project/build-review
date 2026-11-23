@@ -1,7 +1,7 @@
 # RetroArch manager (droidtop.retroarch). DRAFT by the harness lane (2026-11-05), read from
 # plugin-unstable (droidtop.retroarch.droidplugin.tar.xz) and the repo at d67f7e3. Host-API permissions
-# carry the manifest's own reasons. The plugins lane confirms it on Droidtop/tracker#550.
-repo: Droidtop/droidtop-plugin-retroarch
+# carry the manifest's own reasons. The plugins lane confirms it on mytop-project/tracker#550.
+repo: mytop-project/droidtop-plugin-retroarch
 extends: _kinds/droidtop-plugin
 purpose: >
   Gets RetroArch cores for your systems, opens RetroArch, and adds save, load and shader controls

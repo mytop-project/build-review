@@ -1,7 +1,7 @@
 # The renpy core's review profile. DRAFT by the harness lane (2026-11-05), read from
 # renpy-8_5-v1-testing (dev.enginehost.renpy.8_5.v1.enginehost.tar.xz) and the core at 89081d0710. The Enginehost
-# cores lane confirms it on Droidtop/tracker#550.
-repo: Droidtop/enginehost-renpy-plugin
+# cores lane confirms it on mytop-project/tracker#550.
+repo: mytop-project/enginehost-renpy-plugin
 extends: _kinds/enginehost-core
 purpose: >
   Runs Ren'Py 8.5 games with the upstream Ren'Py runtime as an Enginehost core on the activity transport.
@@ -29,4 +29,4 @@ hosts:   # in the engine's and its libraries' own strings (links, docs); cores l
   www.unicode.org: "A string in the engine or a library it bundles"
   www.world: "A string in the engine or a library it bundles"
   youtrack.jetbrains.com: "A string in the engine or a library it bundles"
-# Not stated on purpose (leads for the cores lane, Droidtop/tracker#550): API dynamic-code, package-install.
+# Not stated on purpose (leads for the cores lane, mytop-project/tracker#550): API dynamic-code, package-install.

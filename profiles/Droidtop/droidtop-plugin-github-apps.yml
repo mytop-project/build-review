@@ -1,7 +1,7 @@
 # App releases (droidtop.github-apps). DRAFT by the harness lane (2026-11-05), read from
 # plugin-unstable (droidtop.github-apps.droidplugin.tar.xz) and the repo at a5fa28e. Host-API permissions
-# carry the manifest's own reasons. The plugins lane confirms it on Droidtop/tracker#550.
-repo: Droidtop/droidtop-plugin-github-apps
+# carry the manifest's own reasons. The plugins lane confirms it on mytop-project/tracker#550.
+repo: mytop-project/droidtop-plugin-github-apps
 extends: _kinds/droidtop-plugin
 purpose: >
   Installs and updates Android apps from their release pages on GitHub, GitLab and Codeberg, like

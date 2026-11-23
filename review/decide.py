@@ -1,4 +1,4 @@
-"""The standard build review loop's decision (Droidtop/tracker#550).
+"""The standard build review loop's decision (mytop-project/tracker#550).
 
 Owner, 2026-10-15, verbatim: "No. We check the build itself for issues. If
 we find some, then we attempt a rebuild. if that rebuild has the same

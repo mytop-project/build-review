@@ -1,8 +1,8 @@
 # droidtop's Syncthing plugin. DRAFT by the harness lane (2026-11-05), read from
 # plugin-build.15 (droidtop.syncthing.droidplugin.tar.xz) and the repo at 5a14871.
 # Host-API permissions carry the manifest's own reasons. The plugins lane
-# confirms it on Droidtop/tracker#550.
-repo: Droidtop/droidtop-plugin-syncthing
+# confirms it on mytop-project/tracker#550.
+repo: mytop-project/droidtop-plugin-syncthing
 extends: _kinds/droidtop-plugin
 purpose: >
   Upstream Syncthing, unmodified, run by droidtop as a native_bundle plugin, so the person's
@@ -26,9 +26,9 @@ hosts:
   discovery-announce-v6.syncthing.net: "Global discovery, announcing (upstream default)"
   discovery-lookup.syncthing.net: "Global discovery, lookups (upstream default)"
   relays.syncthing.net: "The relay pool (upstream default)"
-  crash.syncthing.net: "Compiled in, not contacted: holdOptions() sets CREnabled = false on every identity load (https://github.com/Droidtop/tracker/issues/550#issuecomment-6651850434)"
-  data.syncthing.net: "Compiled in, not contacted: holdOptions() sets URAccepted = -1, refused (engine.go:220-240; https://github.com/Droidtop/tracker/issues/550#issuecomment-6651850434)"
-  upgrades.syncthing.net: "Compiled in, not contacted: built with -tags noupgrade (build.sh:63,77) and AutoUpgradeIntervalH = 0 (https://github.com/Droidtop/tracker/issues/550#issuecomment-6651850434)"
+  crash.syncthing.net: "Compiled in, not contacted: holdOptions() sets CREnabled = false on every identity load (https://github.com/mytop-project/tracker/issues/550#issuecomment-6651850434)"
+  data.syncthing.net: "Compiled in, not contacted: holdOptions() sets URAccepted = -1, refused (engine.go:220-240; https://github.com/mytop-project/tracker/issues/550#issuecomment-6651850434)"
+  upgrades.syncthing.net: "Compiled in, not contacted: built with -tags noupgrade (build.sh:63,77) and AutoUpgradeIntervalH = 0 (https://github.com/mytop-project/tracker/issues/550#issuecomment-6651850434)"
   docs.syncthing.net: "Links in upstream's messages"
   api.github.com: "Upstream's release lookups"
   github.com: "The plugin's homepage; upstream links"

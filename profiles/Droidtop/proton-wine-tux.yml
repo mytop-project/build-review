@@ -1,7 +1,7 @@
 # proton-wine-tux's review profile. DRAFT by the harness lane (2026-11-05), read from
 # proton-11.0-2-20261009's proton-11.0-2-x86_64.wcp and build-proton.yml. The Windows
-# runtime lane confirms it on Droidtop/tracker#550.
-repo: Droidtop/proton-wine-tux
+# runtime lane confirms it on mytop-project/tracker#550.
+repo: mytop-project/proton-wine-tux
 purpose: >
   droidtop's own Proton/Wine builds for its Windows runtime, packed as .wcp components
   (droidtop-components' feeds list any Droidtop repository named for Wine or Proton).

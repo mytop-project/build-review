@@ -1,7 +1,7 @@
 """A repo's review profile: its stated purpose, written down so a machine can
 hold the build to it.
 
-Policy (Droidtop/tracker#550, 2026-10-15): "declared permissions and API use
+Policy (mytop-project/tracker#550, 2026-10-15): "declared permissions and API use
 against what the plugin's stated purpose needs". Each repo's profile lives in
 `profiles/<owner>/<repo>.yml` here, not in the repo under review, so an old
 release is judged by today's statement of purpose and a tampered repo can't

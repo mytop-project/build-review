@@ -172,7 +172,7 @@ def cmd_publish(a):
     prev = _r(a.merge) if a.merge and Path(a.merge).exists() else {"entries": []}
     keyed = {f"{e['repo']}@{e['release']}": e for e in prev.get("entries", [])}
     keyed.update({f"{e['repo']}@{e['release']}": e for e in entries})
-    out = {"schema": "droidtop.build-review-results/1", "event": a.event, "policy": "Droidtop/tracker#550",
+    out = {"schema": "droidtop.build-review-results/1", "event": a.event, "policy": "mytop-project/tracker#550",
            "entries": sorted(keyed.values(), key=lambda e: (e["repo"], e["release"]))}
     out["counts"] = {o: sum(1 for e in out["entries"] if e["outcome"] == o) for o in batch.OUTCOMES}
     out["toFile"] = [f"{e['repo']}@{e['release']}" for e in out["entries"] if e.get("issueDraft")]

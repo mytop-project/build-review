@@ -1,11 +1,11 @@
 # droidtop's review profile. permissions, exported_ok and native_libs are
 # the droidtop lane's, read from the merged manifest and lib/ of
 # v0.2.0-dev.2898 and checked against droidtop main 60cc0ea24, each with
-# its reason (https://github.com/Droidtop/tracker/issues/550#issuecomment-6647163484).
+# its reason (https://github.com/mytop-project/tracker/issues/550#issuecomment-6647163484).
 # api, api_callers_ok and explained follow that comment's explanations.
 # hosts is still the harness lane's draft, from main's sources at
 # 8b447d7; the droidtop lane has not confirmed it yet.
-repo: Droidtop/droidtop
+repo: mytop-project/droidtop
 purpose: >
   An Android frontend for handhelds: a gaming shell, a standard launcher and
   a desktop mode over one library of games from many stores and sources. It
@@ -53,7 +53,7 @@ permissions:
   android.permission.RECEIVE_BOOT_COMPLETED: "Launcher3 fork restores its state; scheduled update checks (shell-default, app)"
   android.permission.WAKE_LOCK: "Desktop mode keeps the screen awake; downloads (SPEC 6b 'Desktop keeps the screen awake')"
   android.permission.VIBRATE: "On-screen keyboard key feedback (input-keyboard manifest)"
-  android.permission.RECORD_AUDIO: "Desktop's Microphone row only (SPEC 3d) and offline voice typing (Droidtop/tracker#343)"
+  android.permission.RECORD_AUDIO: "Desktop's Microphone row only (SPEC 3d) and offline voice typing (mytop-project/tracker#343)"
   android.permission.MODIFY_AUDIO_SETTINGS: "Audio output switching and volume rows (SPEC 7j Quick Menu)"
   android.permission.ACCESS_NOTIFICATION_POLICY: "Do not disturb control; the person grants it on Android's screen (app manifest, SystemControls.dndGrantIntent)"
   android.permission.PACKAGE_USAGE_STATS: "Optional: Apps view's Recently used filter; granted in system settings (app manifest)"
@@ -63,13 +63,13 @@ permissions:
   android.permission.REQUEST_DELETE_PACKAGES: "Uninstall from the launcher (shell-default, Launcher3)"
   android.permission.KILL_BACKGROUND_PROCESSES: "End an emulator's leftover process before relaunch, no root (library-core manifest, ConsoleRomProvider)"
   android.permission.REORDER_TASKS: "Bring the shell's task back so the pad stays with it (app manifest, SPEC 4c, ForegroundShell.installPadReturn)"
-  android.permission.SYSTEM_ALERT_WINDOW: "Overlays over games: Quick Menu, HOME combos (SPEC 7j, Droidtop/tracker#740)"
+  android.permission.SYSTEM_ALERT_WINDOW: "Overlays over games: Quick Menu, HOME combos (SPEC 7j, mytop-project/tracker#740)"
   android.permission.MANAGE_EXTERNAL_STORAGE: "Game folders anywhere on shared storage; never copies a person's games (SPEC 7g, AGENTS rule)"
   android.permission.READ_EXTERNAL_STORAGE: "Same, before API 30 (app manifest)"
   android.permission.WRITE_EXTERNAL_STORAGE: "Same, before API 30 (app manifest)"
   android.permission.SET_WALLPAPER: "Launcher wallpaper picker (shell-default, SPEC 2c Wallpaper)"
   android.permission.SET_WALLPAPER_HINTS: "Launcher3 wallpaper sizing (shell-default)"
-  android.permission.BIND_APPWIDGET: "Widgets on the home screen (SPEC 2c Widgets, Droidtop/tracker#563)"
+  android.permission.BIND_APPWIDGET: "Widgets on the home screen (SPEC 2c Widgets, mytop-project/tracker#563)"
   android.permission.EXPAND_STATUS_BAR: "Launcher3 swipe-down gesture opens notifications (shell-default)"
   android.permission.WRITE_SETTINGS: "Launcher3 parity; brightness and rotation rows where granted (shell-default)"
   android.permission.READ_USER_DICTIONARY: "On-screen keyboard suggestions (input-keyboard manifest)"
@@ -107,7 +107,7 @@ exported_ok:
   com.android.launcher3.widgetpicker.WidgetPickerActivity: "Behind droidtop's START_WIDGET_PICKER_ACTIVITY permission"
   com.android.launcher3.dragndrop.AddItemActivity: "Pin shortcut/widget requests from other apps (Launcher3)"
   com.android.launcher3.settings.SettingsActivity: "APPLICATION_PREFERENCES entry (Launcher3)"
-  dev.droidtop.pluginhost.AppInterfaceDoorService: "Door for app interface plugins; answers only an installed, approved, enabled, verified plugin's app, carries no data (plugin-api.md 1.3, Droidtop/tracker#547)"
+  dev.droidtop.pluginhost.AppInterfaceDoorService: "Door for app interface plugins; answers only an installed, approved, enabled, verified plugin's app, carries no data (plugin-api.md 1.3, mytop-project/tracker#547)"
   com.android.launcher3.notification.NotificationListener: "Behind BIND_NOTIFICATION_LISTENER_SERVICE: notification dots"
   org.pocketworkstation.pckeyboard.LatinIME: "Behind BIND_INPUT_METHOD: droidtop's keyboard (SPEC 6a)"
   dev.droidtop.app.UpdateNowReceiver: "Behind android.permission.DUMP: adb/rig trigger for an update check"
@@ -169,7 +169,7 @@ native_libs:  # both ABIs, arm64-v8a and x86_64
   libnrb.so: "TO IDENTIFY: not built by droidtop; only JNI_OnLoad exported; loaded by a dependency"
 
 # EnginehostGameEndedReceiver is in exported_ok from droidtop batch 1104n
-# (ci/game-ended-guard, Droidtop/tracker#885): a broadcast is trusted only
+# (ci/game-ended-guard, mytop-project/tracker#885): a broadcast is trusted only
 # to start the upload of the folder droidtop passed. Builds before it were
 # judged without this entry.
 
@@ -181,8 +181,8 @@ api:
   package-install: "droidtop's own updates and app sources' installs (SPEC 10b)"
   clipboard-read: "Paste into the keyboard and the desktop (SPEC 6d)"
   location: "Android's price for reading the Wi-Fi name (permissions above)"
-  audio-record: "Desktop's Microphone row and offline voice typing (SPEC 3d, Droidtop/tracker#343)"
-  accessibility: "The HOME combos over games (Droidtop/tracker#740), off until the person turns it on"
+  audio-record: "Desktop's Microphone row and offline voice typing (SPEC 3d, mytop-project/tracker#343)"
+  accessibility: "The HOME combos over games (mytop-project/tracker#740), off until the person turns it on"
   device-admin: "The Standard home screen's Lock screen gesture (ScreenOffAdminReceiver: not exported, BIND_DEVICE_ADMIN, off until enabled)"
   native-process: "proot and the Windows runtime start processes"
   native-network: "aria2, crane, the agent and windowcast libraries"
@@ -195,7 +195,7 @@ api_callers_ok:
   trust-all-tls:
     "Lio/github/muntashirakon/adb/SslUtils$2;": "TLS to the device's own adbd for wireless debugging, only ever 127.0.0.1 (WirelessDebuggingOps.kt:229); adbd's self-signed certificate is authenticated by the SPAKE2 pairing"
     "Lorg/eclipse/jgit/transport/http/NoCheckX509TrustManager;": "Only takes effect when a repository sets http.sslVerify false; droidtop's only jgit use (ThemeDownloader, https) never does"
-    "Lorg/bouncycastle/est/jcajce/JcaJceUtils$1;": "BouncyCastle's EST client, bundled in bcpkix, which droidtop uses only for its adb key's certificate (WirelessDebuggingOps); nothing imports org.bouncycastle.est, and R8 removes every EST class from the release APK (0 references in 2974's droidtop.apk, 52 in the unshrunk debug APK; https://github.com/Droidtop/tracker/issues/901#issuecomment-6656510783)"
+    "Lorg/bouncycastle/est/jcajce/JcaJceUtils$1;": "BouncyCastle's EST client, bundled in bcpkix, which droidtop uses only for its adb key's certificate (WirelessDebuggingOps); nothing imports org.bouncycastle.est, and R8 removes every EST class from the release APK (0 references in 2974's droidtop.apk, 52 in the unshrunk debug APK; https://github.com/mytop-project/tracker/issues/901#issuecomment-6656510783)"
 
 # Findings the droidtop lane explained, each with its reason and source.
 # They stay in the report as info, marked "Explained".
@@ -203,23 +203,23 @@ explained:
   - rule: apkid.packer
     location: "droidtop*.apk"
     reason: "No packer: R8's short names (isMinifyEnabled) match APKiD's DexGuard heuristic; a rebuild from the commit reproduces it"
-    source: "https://github.com/Droidtop/tracker/issues/550#issuecomment-6647163484"
+    source: "https://github.com/mytop-project/tracker/issues/550#issuecomment-6647163484"
   - rule: apkid.manipulator
     location: "droidtop*.apk"
     reason: "AGP's release resource-path shortening (res/-1.xml, res/-A.png; 1,801 entries in 2898), not a manipulation"
-    source: "https://github.com/Droidtop/tracker/issues/550#issuecomment-6647163484"
+    source: "https://github.com/mytop-project/tracker/issues/550#issuecomment-6647163484"
   - rule: apkid.manipulator
     location: "assets/provider-host.apk"
     reason: "The same AGP release resource-path shortening in :provider-host's release build (app/build.gradle.kts:340-359): 31 of its 43 res/ entries in 2974 (res/2K.9.png, res/4B.xml)"
-    source: "https://github.com/Droidtop/tracker/issues/901#issuecomment-6656510783"
+    source: "https://github.com/mytop-project/tracker/issues/901#issuecomment-6656510783"
   - rule: apkid.packer
     location: "assets/provider-host.apk"
     reason: "No packer: APKiD's dexguard_packer matched one $enc_class pattern in the deflate-compressed bytes of lib/x86_64/libdroidtop_agent.so inside the inner APK (not in the decompressed library); every dex is plain R8 (3055)"
-    source: "https://github.com/Droidtop/tracker/issues/901#issuecomment-6680649425"
+    source: "https://github.com/mytop-project/tracker/issues/901#issuecomment-6680649425"
   - rule: endpoint.not-in-purpose
     location: "1.2.2.1"
     reason: "Not an address: an ASN.1 OID in crypto tables (classes6.dex, libwindowcast_client.so) and part of a Go closure name in libcrane.so"
-    source: "https://github.com/Droidtop/tracker/issues/550#issuecomment-6647163484"
+    source: "https://github.com/mytop-project/tracker/issues/550#issuecomment-6647163484"
 
 hosts:
   - github.com

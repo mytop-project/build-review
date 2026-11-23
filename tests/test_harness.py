@@ -201,11 +201,11 @@ def test_unreviewable_is_refused_not_rebuilt():
 
 BODY = """## Checklist
 
-### Droidtop/droidtop-plugin-syncthing (2)
+### mytop-project/droidtop-plugin-syncthing (2)
 - [ ] `plugin-build.15` 2026-10-30 pre | .droidplugin.tar.xz; signature inside archive, not inspected
 - [x] `plugin-v1.0.0` 2026-10-16 | .droidplugin.tar.xz
 
-### Droidtop/droidtop-agent (1)
+### mytop-project/droidtop-agent (1)
 - [ ] `build-130` 2026-10-31 | sha256 list only
 """
 COMMENT = """- [ ] `build-128` 2026-10-31 | sha256 list only
@@ -215,13 +215,13 @@ COMMENT = """- [ ] `build-128` 2026-10-31 | sha256 list only
 
 
 def test_batch_parse_pasted_inventory_lines_and_pairs():
-    items = batch.parse(BODY + COMMENT + "Droidtop/enginehost@v0.1.5\n- T/x@build-9\n", "pasted")
+    items = batch.parse(BODY + COMMENT + "mytop-project/enginehost@v0.1.5\n- T/x@build-9\n", "pasted")
     keys = [i.key for i in items]
-    assert "Droidtop/droidtop-agent@build-128" in keys      # heading carried down
+    assert "mytop-project/droidtop-agent@build-128" in keys      # heading carried down
     assert "gamegrab-sources/catalog@v3" in keys
-    assert "Droidtop/enginehost@v0.1.5" in keys and "T/x@build-9" in keys
+    assert "mytop-project/enginehost@v0.1.5" in keys and "T/x@build-9" in keys
     planned = [i.key for i in batch.plan(items, repos="Droidtop/*")]
-    assert "Droidtop/droidtop-plugin-syncthing@plugin-v1.0.0" not in planned   # ticked
+    assert "mytop-project/droidtop-plugin-syncthing@plugin-v1.0.0" not in planned   # ticked
     assert "gamegrab-sources/catalog@v3" not in planned
     assert len(batch.plan(items, limit=1)) == 1
 
@@ -276,10 +276,10 @@ def test_code_outcome_carries_an_issue_draft_and_the_client_cannot_write():
     d = decide.decide(_rec([BAD]), _rec([BAD]))
     d["reportUrl"] = "https://run/1"
     draft = report.issue_draft(d)
-    assert draft["repo"] == "Droidtop/tracker" and draft["labels"] == ["build-review"]
+    assert draft["repo"] == "mytop-project/tracker" and draft["labels"] == ["build-review"]
     assert BAD.fingerprint in draft["body"] and "Owning repo: T/r" in draft["body"]
     with pytest.raises(RuntimeError):
-        GitHub("x")._req("POST", "/repos/Droidtop/tracker/issues", {})
+        GitHub("x")._req("POST", "/repos/mytop-project/tracker/issues", {})
 
 
 # --- whole pipeline, with the real analysers --------------------------------

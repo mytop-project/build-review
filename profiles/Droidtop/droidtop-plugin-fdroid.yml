@@ -1,7 +1,7 @@
 # F-Droid repositories (droidtop.fdroid). DRAFT by the harness lane (2026-11-05), read from
 # plugin-unstable (droidtop.fdroid.droidplugin.tar.xz) and the repo at 8fe2652. Host-API permissions
-# carry the manifest's own reasons. The plugins lane confirms it on Droidtop/tracker#550.
-repo: Droidtop/droidtop-plugin-fdroid
+# carry the manifest's own reasons. The plugins lane confirms it on mytop-project/tracker#550.
+repo: mytop-project/droidtop-plugin-fdroid
 extends: _kinds/droidtop-plugin
 purpose: >
   Installs and updates Android apps from F-Droid and the F-Droid repositories you add.

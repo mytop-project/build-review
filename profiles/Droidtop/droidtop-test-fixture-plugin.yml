@@ -1,7 +1,7 @@
 # droidtop's test fixture plugins (dtfixture.python, .native, .flutter, .gpu). DRAFT by the
 # harness lane (2026-11-05), read from the repo at 6087311 (fixtures.yml, each fixture's
-# manifest.template.json). The plugins lane confirms it on Droidtop/tracker#550.
-repo: Droidtop/droidtop-test-fixture-plugin
+# manifest.template.json). The plugins lane confirms it on mytop-project/tracker#550.
+repo: mytop-project/droidtop-test-fixture-plugin
 extends: _kinds/droidtop-plugin
 purpose: >
   Fixture plugins droidtop's own tests install, one per plugin kind (python, native_bundle,

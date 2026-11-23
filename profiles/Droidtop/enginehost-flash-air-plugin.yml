@@ -1,7 +1,7 @@
 # The flash-air core's review profile. DRAFT by the harness lane (2026-11-05), read from
 # flashair-ruffle041-v1-unstable (dev.enginehost.flashair.ruffle041.v1.enginehost.tar.xz) and the core at 9a055b659d. The Enginehost
-# cores lane confirms it on Droidtop/tracker#550.
-repo: Droidtop/enginehost-flash-air-plugin
+# cores lane confirms it on mytop-project/tracker#550.
+repo: mytop-project/enginehost-flash-air-plugin
 extends: _kinds/enginehost-core
 purpose: >
   Runs Flash and AIR games with Ruffle as an Enginehost core.

@@ -1,7 +1,7 @@
 # droidtop-components' review profile. DRAFT by the harness lane (2026-11-05), read from
 # the repo at 2c8053f (README, sources/mirror.json, sources/feeds.json) and the `catalog`
-# release's catalog.json. The components lane confirms it on Droidtop/tracker#550.
-repo: Droidtop/droidtop-components
+# release's catalog.json. The components lane confirms it on mytop-project/tracker#550.
+repo: mytop-project/droidtop-components
 purpose: >
   The Windows-runtime components droidtop downloads on demand (Wine and Proton builds, DXVK,
   VKD3D-Proton, FEXCore, Box64, Adreno drivers, the runtime's base system, innoextract), re-hosted

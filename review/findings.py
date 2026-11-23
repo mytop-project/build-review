@@ -3,7 +3,7 @@
 A finding's fingerprint leaves out what changes from build to build (version
 numbers, build ids, hashes and the extraction root), so a rebuild of the same
 commit that has the same problem gives the same fingerprint. Step 3 of the
-standard build review loop (Droidtop/tracker#550) depends on that: "if that
+standard build review loop (mytop-project/tracker#550) depends on that: "if that
 rebuild has the same issues, then the issue is in the code".
 """
 from __future__ import annotations

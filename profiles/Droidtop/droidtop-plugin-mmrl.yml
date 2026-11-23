@@ -1,7 +1,7 @@
 # Root modules (droidtop.mmrl-modules). DRAFT by the harness lane (2026-11-05), read from
 # plugin-unstable (droidtop.mmrl-modules.droidplugin.tar.xz) and the repo at e5b2ffe. Host-API permissions
-# carry the manifest's own reasons. The plugins lane confirms it on Droidtop/tracker#550.
-repo: Droidtop/droidtop-plugin-mmrl
+# carry the manifest's own reasons. The plugins lane confirms it on mytop-project/tracker#550.
+repo: mytop-project/droidtop-plugin-mmrl
 extends: _kinds/droidtop-plugin
 purpose: >
   Lists your Magisk, KernelSU or APatch modules, turns them on and off, checks them for updates
@@ -11,12 +11,12 @@ build:
   workflow: .github/workflows/plugin-bundle.yml   # the plugin's own bundle job lives here
   job: bundle
 plugin_permissions:
-  # From ci/root-through-provider-892 (07b08b5, Droidtop/tracker#892) on; earlier
-  # releases declare nothing and run su directly (https://github.com/Droidtop/tracker/issues/550#issuecomment-6651850434).
+  # From ci/root-through-provider-892 (07b08b5, mytop-project/tracker#892) on; earlier
+  # releases declare nothing and run su directly (https://github.com/mytop-project/tracker/issues/550#issuecomment-6651850434).
   priv.shell.root: "Lists your modules, switches them on and off, and installs new ones (manifest, optional)"
 # su: earlier releases (e5b2ffe and before) run `su -c` directly from
 # RootShell.exec under a contract 3 manifest with requestsRoot and no
-# priv.shell.root, bypassing droidtop's root approval (Droidtop/tracker#892).
+# priv.shell.root, bypassing droidtop's root approval (mytop-project/tracker#892).
 # Their "su" string is used by RootShell, which is not named below, so those
 # releases still get the finding.
 # From 7f8caa4 on, the plugin runs Magisk's own CLI through the enhanced
@@ -25,7 +25,7 @@ plugin_permissions:
 # use it (build review batch 42120200445, plugin-build.26).
 api_callers_ok:
   su:
-    "Ldev/droidtop/plugins/mmrl/RootProvider$Companion;": "detect() asks the provider to run `magisk -v` (then ksud, apd) to tell the root solutions apart; through PrivilegedShell, the provider's exec, with no su (RootProvider.kt, RootProvider.detect, at 7f8caa4, Droidtop/tracker#892)"
-    "Ldev/droidtop/plugins/mmrl/ModuleManager;": "install() runs `magisk --install-module <zip>` (or ksud/apd) as an argv list through PrivilegedShell.execLong, the provider's exec_stream, with no su (ModuleManager.kt, ModuleManager.install, at 7f8caa4, Droidtop/tracker#892)"
+    "Ldev/droidtop/plugins/mmrl/RootProvider$Companion;": "detect() asks the provider to run `magisk -v` (then ksud, apd) to tell the root solutions apart; through PrivilegedShell, the provider's exec, with no su (RootProvider.kt, RootProvider.detect, at 7f8caa4, mytop-project/tracker#892)"
+    "Ldev/droidtop/plugins/mmrl/ModuleManager;": "install() runs `magisk --install-module <zip>` (or ksud/apd) as an argv list through PrivilegedShell.execLong, the provider's exec_stream, with no su (ModuleManager.kt, ModuleManager.install, at 7f8caa4, mytop-project/tracker#892)"
 hosts:
   github.com: "Upstream attribution in the code (MmrlPlugin.kt:19)"

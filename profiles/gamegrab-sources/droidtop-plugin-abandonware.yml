@@ -1,6 +1,6 @@
 # Abandonware (gamegrab.abandonware). DRAFT by the harness lane (2026-11-05), read from the repo at
 # 6ad1b26 (manifest.template.json and its code); its published bundles could not be fetched from this
-# lane's sandbox. The plugins lane confirms it on Droidtop/tracker#550.
+# lane's sandbox. The plugins lane confirms it on mytop-project/tracker#550.
 repo: gamegrab-sources/droidtop-plugin-abandonware
 extends: _kinds/gamegrab-plugin
 purpose: >

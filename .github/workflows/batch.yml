@@ -1,6 +1,6 @@
 name: Build review batch
 
-# The forced audit after a key revocation (Droidtop/tracker#550): reviews
+# The forced audit after a key revocation (mytop-project/tracker#550): reviews
 # each selected release through review-release.yml and publishes
 # build-review-results.json, which goes out with the catalog beside the
 # revocation list. It never touches the tracker, which is private, and has
@@ -120,5 +120,5 @@ jobs:
         run: |
           gh release view audit-results -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 || \
             gh release create audit-results -R "$GITHUB_REPOSITORY" --title "Build review results" \
-              --notes "Every release's build review outcome (Droidtop/tracker#550). The coordinator publishes build-review-results.json with the catalog, beside the revocation list, and files a build-review issue on Droidtop/tracker for every entry in toFile."
+              --notes "Every release's build review outcome (mytop-project/tracker#550). The coordinator publishes build-review-results.json with the catalog, beside the revocation list, and files a build-review issue on mytop-project/tracker for every entry in toFile."
           gh release upload audit-results out/build-review-results.json -R "$GITHUB_REPOSITORY" --clobber

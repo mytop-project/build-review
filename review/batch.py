@@ -5,10 +5,10 @@ token (owner, 2026-11-05: "Drop the token, file the issues yourself"), so a
 run's releases come either from text the coordinator pastes into the run,
 or from the named repos' own public releases.
 
-Pasted text can be lines copied from an inventory issue (Droidtop/tracker#876
+Pasted text can be lines copied from an inventory issue (mytop-project/tracker#876
 style, a checklist under `### <owner>/<repo>` headings):
 
-    ### Droidtop/droidtop (396)
+    ### mytop-project/droidtop (396)
     - [ ] `<tag>` <date>[ pre] | <signer evidence>
 
 or one `<owner>/<repo>@<tag>` per line. Ticked lines are skipped unless

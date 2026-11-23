@@ -1,5 +1,5 @@
 # What every droidtop plugin repo shares (droidtop docs/plugin-api.md;
-# Droidtop/droidtop-platforms .github/workflows/droidtop-plugin-bundle.yml).
+# mytop-project/droidtop-platforms .github/workflows/droidtop-plugin-bundle.yml).
 # A plugin's own profile `extends: _kinds/droidtop-plugin` and states its
 # purpose, its host-API permissions (with the manifest's own reasons) and
 # its native libraries.

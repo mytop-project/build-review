@@ -13,7 +13,7 @@ jobs:
 
   review:
     needs: build
-    uses: Droidtop/build-review/.github/workflows/review-release.yml@v1
+    uses: mytop-project/build-review/.github/workflows/review-release.yml@v1
     with:
       release: build-${{ github.run_number }}
       source: artifact

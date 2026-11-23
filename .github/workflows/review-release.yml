@@ -1,6 +1,6 @@
 name: Build review
 
-# The standard build review loop (Droidtop/tracker#550), as one reusable
+# The standard build review loop (mytop-project/tracker#550), as one reusable
 # workflow any repo's release can call:
 #   1. review the built artefacts (static always; dynamic where it applies)
 #   2. findings: rebuild from the same commit and review the rebuild
@@ -56,7 +56,7 @@ on:
         type: string
         default: gate
       harness-ref:
-        description: Ref of Droidtop/build-review to run (the same one the caller's `uses:` names).
+        description: Ref of mytop-project/build-review to run (the same one the caller's `uses:` names).
         type: string
         default: v1
     outputs:
@@ -97,7 +97,7 @@ jobs:
       - name: Harness
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          repository: Droidtop/build-review
+          repository: mytop-project/build-review
           ref: ${{ inputs.harness-ref }}
           path: harness
           persist-credentials: false
@@ -171,7 +171,7 @@ jobs:
     timeout-minutes: 90
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with: {repository: Droidtop/build-review, ref: "${{ inputs.harness-ref }}", path: harness, persist-credentials: false}
+        with: {repository: mytop-project/build-review, ref: "${{ inputs.harness-ref }}", path: harness, persist-credentials: false}
       - uses: ./harness/.github/actions/setup
       - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with: {name: "review-static-${{ needs.static.outputs.key }}", path: out}
@@ -224,7 +224,7 @@ jobs:
           REF: ${{ inputs.harness-ref }}
         run: |
           h="$RUNNER_TEMP/harness"
-          git init -q "$h" && git -C "$h" remote add origin https://github.com/Droidtop/build-review
+          git init -q "$h" && git -C "$h" remote add origin https://github.com/mytop-project/build-review
           git -C "$h" fetch -q --depth 1 origin "$REF" && git -C "$h" checkout -q FETCH_HEAD
           python -m pip install -q pyyaml==6.0.2
       - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
@@ -294,7 +294,7 @@ jobs:
         # variable removed, so a rebuild is unsigned by construction (README,
         # "Rebuilds"), and names the outputs as the release published them.
         # The job's own read-only token reaches only an act replay, as its
-        # github.token (owner, 2026-11-05, Droidtop/tracker#913).
+        # github.token (owner, 2026-11-05, mytop-project/tracker#913).
         env:
           REBUILD_READ_TOKEN: ${{ github.token }}
         run: |
@@ -317,7 +317,7 @@ jobs:
     timeout-minutes: 240
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with: {repository: Droidtop/build-review, ref: "${{ inputs.harness-ref }}", path: harness, persist-credentials: false}
+        with: {repository: mytop-project/build-review, ref: "${{ inputs.harness-ref }}", path: harness, persist-credentials: false}
       - uses: ./harness/.github/actions/setup
       - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with: {name: "rebuilt-${{ needs.static.outputs.key }}", path: rebuilt}
@@ -358,7 +358,7 @@ jobs:
       report-url: ${{ steps.url.outputs.url }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with: {repository: Droidtop/build-review, ref: "${{ inputs.harness-ref }}", path: harness, persist-credentials: false}
+        with: {repository: mytop-project/build-review, ref: "${{ inputs.harness-ref }}", path: harness, persist-credentials: false}
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with: {python-version: "3.12"}
       - run: python -m pip install -q pyyaml==6.0.2

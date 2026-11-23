@@ -2,7 +2,7 @@
 
 The automated build review harness for droidtop, Enginehost, gamegrab and
 every other Droidtop release. It puts into practice the owner's standard
-build review loop (Droidtop/tracker#550, 2026-10-15), so no build is reviewed
+build review loop (mytop-project/tracker#550, 2026-10-15), so no build is reviewed
 by hand. The owner, 2026-11-04: "We need to write the review harness anyway,
 so you aren't reviewing it manually".
 
@@ -24,7 +24,7 @@ may be signed.
 | 1. Review | Every artefact goes through the static analysers. The dynamic run follows where it applies. | `review-release.yml` jobs `static`, `dynamic` |
 | 2. Findings? | Rebuild from the same commit, with no secrets, and review the rebuild the same way. | jobs `rebuild`, `review-rebuild` |
 | 3. Decide | **approved**, **rebuilt** or **refused** (with a reason). | job `decide`, `review/decide.py` |
-| 4. Fix in code | If the rebuild has the same findings, the decision carries an issue draft: the owning repo, the release, the fingerprints and the evidence. The coordinator files it on Droidtop/tracker (label `build-review`). The owning lane fixes the code, and the fixed build goes through this same loop. | `issueDraft` in the decision and the results |
+| 4. Fix in code | If the rebuild has the same findings, the decision carries an issue draft: the owning repo, the release, the fingerprints and the evidence. The coordinator files it on mytop-project/tracker (label `build-review`). The owning lane fixes the code, and the fixed build goes through this same loop. | `issueDraft` in the decision and the results |
 
 The harness never writes to the tracker, and it has no token of its own
 (owner, 2026-11-05: "Drop the token, file the issues yourself"). Everything
@@ -127,9 +127,9 @@ not listed is unexpected.
   like code, because it widens what a build may do.
 - Entries can be a list or a `name: reason` map. A reason starting
   "TO IDENTIFY" is no reason: that entry stays a finding.
-- Today only `Droidtop/droidtop` has one. Its permissions, exported
+- Today only `mytop-project/droidtop` has one. Its permissions, exported
   components and native libraries are the droidtop lane's
-  (Droidtop/tracker#550, 2026-11-05). Its endpoints are still the harness
+  (mytop-project/tracker#550, 2026-11-05). Its endpoints are still the harness
   lane's draft.
 
 ## Rebuilds
@@ -158,7 +158,7 @@ read`, expiring with the job, the same token the repo's own build job has. A
 job that checks out another repository cannot start without one: the shared
 droidtop plugin workflow checks out droidtop first, and stopped with "Input
 required and not supplied: token". The owner allowed it on 2026-11-05
-(Droidtop/tracker#913: "Yes"). It goes to act through a secret file
+(mytop-project/tracker#913: "Yes"). It goes to act through a secret file
 that is deleted afterwards, never into the build's environment, and command
 builds get nothing. No signing key, store or release token, or anything that
 can write ever reaches a rebuild, and every other credential-shaped variable
@@ -184,7 +184,7 @@ between (full example: `docs/caller-gate.yml`):
 ```yaml
 review:
   needs: build
-  uses: Droidtop/build-review/.github/workflows/review-release.yml@v1
+  uses: mytop-project/build-review/.github/workflows/review-release.yml@v1
   with: {release: "build-${{ github.run_number }}", source: artifact, artifact-name: unsigned, mode: gate}
 sign:
   needs: review
@@ -238,7 +238,7 @@ lists every release with its outcome, reason, summary, report link,
 artefact hashes and rebuilt artefacts. For a `code` outcome it also lists
 the blocking fingerprints, the findings with their evidence, and an
 `issueDraft` (`repo`, `title`, `body`, `labels`). `toFile` lists the
-releases whose drafts the coordinator files on Droidtop/tracker. The
+releases whose drafts the coordinator files on mytop-project/tracker. The
 coordinator also publishes the file with the catalog, beside the
 revocation list, at signing time. The harness writes neither the tracker
 nor `droidtop-components`.
@@ -250,7 +250,7 @@ bash scripts/install-tools.sh ~/.local/bin
 ```
 
 ```bash
-python -m review review --repo Droidtop/droidtop --release v0.2.0-dev.2898 --out record.json path/to/droidtop.apk
+python -m review review --repo mytop-project/droidtop --release v0.2.0-dev.2898 --out record.json path/to/droidtop.apk
 ```
 
 ```bash
@@ -268,7 +268,7 @@ python -m pytest -q tests
   Callers pin `@v1`, a tag on a reviewed commit.
 - No token. Every repo the harness reads is public (owner, 2026-11-05).
 - A `v1` tag on the reviewed commit that callers pin.
-- A `build-review` label on Droidtop/tracker, for the issues the coordinator
+- A `build-review` label on mytop-project/tracker, for the issues the coordinator
   files (it exists).
 
 ## Limits, stated

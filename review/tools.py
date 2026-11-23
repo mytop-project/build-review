@@ -2,7 +2,7 @@
 
 A missing or failing analyser never lets a build through: it becomes a
 `harness.*` finding, and a review with one is "can't be reviewed", which the
-policy lists for the owner (Droidtop/tracker#550: "Releases that fail, or
+policy lists for the owner (mytop-project/tracker#550: "Releases that fail, or
 can't be reviewed, aren't re-signed").
 """
 from __future__ import annotations
